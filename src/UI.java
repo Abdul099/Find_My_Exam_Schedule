@@ -37,13 +37,17 @@ public class UI {
             public void actionPerformed(ActionEvent e) {
                 String course = tf.getText();
                 String section = tf2.getText();
-                if(backend.verifycourse(course, section)){
-                    ta.append("  " + course + " | "+ section +"\n");
-                    inputCourseList.add(course);
-                    inputSectionList.add(section);
-                }
-                else{
-                    JOptionPane.showMessageDialog(frame, "Invalid Course ");
+                try {
+                    if(backend.verifycourse(course, section)){
+                        ta.append("  " + course + " | "+ section +"\n");
+                        inputCourseList.add(course);
+                        inputSectionList.add(section);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(frame, "Invalid Course ");
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
             }
         });

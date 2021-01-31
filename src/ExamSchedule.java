@@ -21,9 +21,10 @@ public class ExamSchedule {
         //int i = 1;
         for(int i=0; i<this.examList.size(); i++)
         {
+            int j = i+1;
             Exam exam = this.examList.get(i);
             System.out.println(this.examList.size());
-            output += "Exam #" + i + ": " + exam.getCourse() + "-" + exam.getSection() + ", " + exam.getTitle() + "\n";
+            output += "Exam #" + j + ": " + exam.getCourse() + "-" + exam.getSection() + ", " + exam.getTitle() + "\n";
             output+="Course name: " + exam.getTitle() + "\n";
             output+="Date and time: " + exam.getDate() + ", " + exam.getTime() + "\n";
             output+="Location: " + exam.getPlace() + "\n";
