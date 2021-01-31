@@ -21,7 +21,7 @@ public class csvReader {
             String[] row = line.split(",");
             String rowCourseNum = row[0].replaceAll(" ", "").toLowerCase();
             String rowCourseSec = row[1].replaceAll("0", "").toLowerCase();
-            courseCode = courseCode.replaceAll(" ", "");
+            courseCode = courseCode.replaceAll(" ", "").toLowerCase();
             if (rowCourseNum.equals(courseCode) && rowCourseSec.equals(courseSection.replaceAll("0", ""))) {
                 Exam anExam = new Exam(row[0], row[1], row[2], row[3], row[4], row[5]);
                 return anExam;
@@ -38,7 +38,7 @@ public class csvReader {
             String[] row = line.split(",");
             String rowCourseNum = row[0].replaceAll(" ", "").toLowerCase();
             String rowCourseSec = row[1].replaceAll("0", "").toLowerCase();
-            courseCode = courseCode.replaceAll(" ", "");
+            courseCode = courseCode.replaceAll(" ", "").toLowerCase();
             if (rowCourseNum.equals(courseCode) && rowCourseSec.equals(courseSection.replaceAll("0", ""))) {
                 return true;
             }
