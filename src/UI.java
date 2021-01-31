@@ -15,11 +15,11 @@ public class UI {
         JFrame frame = new JFrame("Chat Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
-        JPanel panel = new JPanel(); // the panel is not visible in output
+        JPanel panel = new JPanel(); 
         JLabel label = new JLabel("Course Name");
-        JTextField tf = new JTextField(10); // accepts upto 10 characters
+        JTextField tf = new JTextField(10); // accepts up to 10 characters
         JLabel label2 = new JLabel("Section");
-        JTextField tf2 = new JTextField(8); // accepts upto 10 characters
+        JTextField tf2 = new JTextField(8); // accepts up to 8 characters
         JButton addBtn = new JButton("Add");
         JButton goBtn = new JButton("Go");
         panel.add(label); // Components Added using Flow Layout
@@ -31,7 +31,7 @@ public class UI {
         JTextArea ta = new JTextArea(); //text area at center
 
         //Event Handler Functions: Those activate when you click on a button
-        addBtn.addActionListener(new ActionListener() {
+        addBtn.addActionListener(new ActionListener() { //action for add button
             @Override
             public void actionPerformed(ActionEvent e) {
                 String course = tf.getText();
@@ -46,10 +46,11 @@ public class UI {
                 }
             }
         });
-        goBtn.addActionListener(new ActionListener() {
+        goBtn.addActionListener(new ActionListener() { //action for go button
             @Override
             public void actionPerformed(ActionEvent e) {
-                ta.setText(backend.findOutputListToUI(inputCourseList, inputSectionList));
+                if(inputCourseList.size()==0) JOptionPane.showMessageDialog(frame, "No Course Selected");
+                else ta.setText(backend.findOutputListToUI(inputCourseList, inputSectionList));
             }
         });
 

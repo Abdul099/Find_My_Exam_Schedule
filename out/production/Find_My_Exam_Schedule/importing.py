@@ -9,19 +9,20 @@ from pathlib import Path
 import tabula
 import camelot
 import pandas as pd
+import argparse
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("url")
+    args = parser.parse_args()
     filename = Path('data.pdf')
-    url = 'https://www.mcgill.ca/exams/files/exams/december_2019_final_exam_schedule_with_room_locationsd12.pdf'
+    url = args.url
     response = requests.get(url)
     filename.write_bytes(response.content)
- 
     tables = tabula.read_pdf(url, pages = "all", multiple_tables = True)
-    #print(tables)
-    big_table = pd.concat(tables)
+    big_table = pd.concat(tables).reset_index(drop=True)
     print(big_table)
-    big_table.to_csv("data.csv")
-
+    big_table.to_csv("data.csv", index=False)
 
 if __name__ == '__main__':
     main()
