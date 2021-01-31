@@ -5,6 +5,7 @@ public class Backend {
     public Backend(){
     }
     public boolean verifycourse(String course, String section){
+        if(course.trim().equals("") || section.trim().equals("")) return false;
         if(course.equals("comp551")) return false;//also a placeholder, we must check if course number and section exist in csv
         return true;
     }
