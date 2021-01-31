@@ -28,7 +28,6 @@ public class ExamSchedule {
             output+="Date and time: " + exam.getDate() + ", " + exam.getTime() + "\n";
             output+="Location: " + exam.getPlace() + "\n";
             output+="\n=========================================\n\n";
-            i++;
         }
         return output;
     }

@@ -21,14 +21,16 @@ public class csvReader {
         }
     }
 
-    public Exam searchCourseCsv(String courseCode, String courseSection) throws IOException {
+    public Exam searchCourseList(String courseCode, String courseSection) throws IOException {
         BufferedReader csvReader = new BufferedReader(new FileReader(this.csvFile));
         String line = csvReader.readLine();
         //Exam anExam;
 
         while ((line= csvReader.readLine()) != null) {
             String[] row = line.split(",");
-            if (row[0].equals(courseCode) || row[1].equals(courseSection)) {
+            String rowCourseNum = row[0].replaceAll(" ", "").toLowerCase();
+            String rowCourseSec = row[1].replaceAll("0", "");
+            if (rowCourseNum.equals(courseCode.toLowerCase()) && rowCourseSec.equals(courseSection.replaceAll("0", ""))) {
                 Exam anExam = new Exam(row[0], row[1], row[2], row[3], row[4], row[4].concat(" ".concat(row[5])));
                 return anExam;
             }
