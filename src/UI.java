@@ -15,7 +15,7 @@ public class UI {
         JFrame frame = new JFrame("Chat Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
-        JPanel panel = new JPanel(); 
+        JPanel panel = new JPanel();
         JLabel label = new JLabel("Course Name");
         JTextField tf = new JTextField(10); // accepts up to 10 characters
         JLabel label2 = new JLabel("Section");
