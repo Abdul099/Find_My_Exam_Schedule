@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class UI {
@@ -50,7 +51,13 @@ public class UI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(inputCourseList.size()==0) JOptionPane.showMessageDialog(frame, "No Course Selected");
-                else ta.setText(backend.findOutputListToUI(inputCourseList, inputSectionList));
+                else {
+                    try {
+                        ta.setText(backend.findOutputListToUI(inputCourseList, inputSectionList));
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
             }
         });
 

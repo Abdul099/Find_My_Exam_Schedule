@@ -15,18 +15,21 @@ public class ExamSchedule {
         return this.examList;
     }
 
-    public void printSchedule(){
-        Iterator<Exam> it = examList.iterator();
-        int i = 1;
-        while (it.hasNext())
+    public String printSchedule(){
+        String output = "";
+        //Iterator<Exam> it = examList.iterator();
+        //int i = 1;
+        for(int i=0; i<this.examList.size(); i++)
         {
-            Exam exam = it.next();
-            System.out.print("Exam #" + i + ": " + exam.getCourse() + "-" + exam.getSection() + ", " + exam.getTitle() + "\n");
-            System.out.print("Course name: " + exam.getTitle() + "\n");
-            System.out.print("Date and time: " + exam.getDate() + ", " + exam.getTime() + "\n");
-            System.out.print("Location: " + exam.getPlace() + "\n");
-            System.out.print("\n=========================================\n\n");
+            Exam exam = this.examList.get(i);
+            System.out.println(this.examList.size());
+            output += "Exam #" + i + ": " + exam.getCourse() + "-" + exam.getSection() + ", " + exam.getTitle() + "\n";
+            output+="Course name: " + exam.getTitle() + "\n";
+            output+="Date and time: " + exam.getDate() + ", " + exam.getTime() + "\n";
+            output+="Location: " + exam.getPlace() + "\n";
+            output+="\n=========================================\n\n";
             i++;
         }
+        return output;
     }
 }
